@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'landsay'`, () => {
+  it(`should have as title 'wandergym'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('landsay');
+    expect(app.title).toEqual('wandergym');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('landsay app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('wandergym app is running!');
   });
 });
