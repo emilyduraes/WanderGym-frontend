@@ -37,16 +37,6 @@
                 <li class="nav-item">
                     <a [ngxScrollTo]="'#about'" class="nav-link" [ngClass]="{'active':curentsection === 'about'}" href="javascript:void(0);">About</a>
                 </li>
-                <li dropdown class="nav-item dropdown">
-                    <a class="nav-link" [ngClass]="{'active':curentsection === 'blog'}" id="navbarDropdown" role="button" dropdownToggle aria-expanded="false">
-                        Blog <i class="mdi mdi-chevron-down"></i>
-                    </a>
-                    <ul *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="nav-link" [ngxScrollTo]="'#blog'" [ngClass]="{'active':curentsection === 'blog'}" routerLink="/">Blog</a></li>
-                        <li><a class="nav-link" routerLink="/blog-list" href="javascript:void(0);">Blog List</a></li>
-                        <li><a class="nav-link" routerLink="/blog-details"href="javascript:void(0);">Blog Details</a></li>
-                    </ul>
-                </li>
                 <li class="nav-item">
                     <a [ngxScrollTo]="'#contact'" class="nav-link" [ngClass]="{'active':curentsection === 'contact'}" href="javascript:void(0);">Contact</a>
                 </li>

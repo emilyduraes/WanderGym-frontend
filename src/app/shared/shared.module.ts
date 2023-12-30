@@ -18,7 +18,6 @@ import { ClientsComponent } from './clients/clients.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { FaqComponent } from './faq/faq.component';
 import { AboutComponent } from './about/about.component';
-import { CtaComponent } from './cta/cta.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 
@@ -32,7 +31,6 @@ import { ContactComponent } from './contact/contact.component';
     PricingComponent,
     FaqComponent,
     AboutComponent,
-    CtaComponent,
     BlogComponent,
     ContactComponent
 
@@ -52,7 +50,6 @@ import { ContactComponent } from './contact/contact.component';
     PricingComponent,
     FaqComponent,
     AboutComponent,
-    CtaComponent,
     BlogComponent,
     ContactComponent
   ]
