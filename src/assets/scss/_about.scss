@@ -1,0 +1,36 @@
+//
+//about.scss
+//
+
+.team-box {
+    .team-social {
+        position: absolute;
+        top: 20px;
+        left: 15px;
+        text-align: center;
+        opacity: 0;
+        transform: translate(-20px, -20px);
+        transition: all 0.3s ease-out;
+        li {
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            background: $white;
+            border-radius: 50%;
+        }
+    }
+    .bg-overlay {
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+    &:hover {
+        .team-social {
+            opacity: 1;
+            transform: translate(0, 0);
+            transition-delay: 0.15s;    
+        }
+        .bg-overlay {
+            background-color: rgba(48, 58, 69, 0.7);
+        }
+    }
+}

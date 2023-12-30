@@ -1,0 +1,40 @@
+//
+// general.scss
+//
+
+body {
+  font-family: $font-family-base;
+  color: $dark;
+  font-size: 15px;
+  &.modal-open {
+    padding-right: 0px !important;
+    .navbar{
+      padding-right: 0px !important;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $font-family-base;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+html {
+  scroll-padding-top: 59px;
+  scroll-behavior: smooth;
+}
+
+.row > * {
+  position: relative;
+}

@@ -1,0 +1,109 @@
+//
+// helper.scss
+//
+
+// color Loop
+@each $color, $value in $theme-colors {
+  .text-#{$color} {
+    color: $value !important;
+  }
+  .bg-#{$color} {
+    background-color: $value !important;
+  }
+}
+
+.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  position: relative;
+}
+
+.fs-13 {
+  font-size: 13px;
+}
+
+.fs-14{
+  font-size: 14px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.fs-17 {
+  font-size: 17px;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-20{
+  font-size: 20px;
+}
+
+.avatar-md {
+  height: auto;
+  width: 74px;
+}
+
+
+// font-weight
+
+.fw-medium {
+  font-weight: $font-weight-medium;
+}
+
+.fw-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+
+.box-shadow {
+  box-shadow: $box-shadow;
+}
+
+// bg-overlay
+
+.bg-overlay {
+  position: absolute;
+  background-color: rgba(48,58,69, 0.7);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+//BACK TO TOP
+#back-to-top {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  background: $gray-800;
+  border-color: transparent;
+  border-radius: 40px;
+  color: $white;
+  transition: all 0.5s ease;
+  display: none;
+  &:hover {
+    border-radius: 5px;
+    background-color: $primary;
+  }
+}
+
+/*******link color*******/
+.primary-link {
+  color: $dark;
+  transition: all 0.5s ease;
+  &:hover {
+    color: $primary;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px !important;
+  }
+}

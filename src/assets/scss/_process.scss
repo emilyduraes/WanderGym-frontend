@@ -1,0 +1,97 @@
+//
+//process.scss
+//
+
+.timeline-page {
+  &::after {
+    content: "";
+    height: 68%;
+    top: 60px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    width: 1px;
+    background-color: rgba($primary, 0.15);
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+      height: 68%;
+    }
+    @media (min-width: 576px) and (max-width: 991.98px) {
+      height: 67%;
+      top: 405px;
+    }
+    @media (max-width: 575.99px) {
+      height: 67%;
+      top: 394px;
+    }
+    @media (max-width: 320px) {
+      top: 352px;
+    }
+  }
+  .timeline-item {
+    .works-description-right {
+      text-align: left;
+      float: left;
+      border-radius: 8px;
+      padding: 20px;
+    }
+    .works-description-left {
+      text-align: right;
+      float: right;
+      border-radius: 8px;
+      padding: 20px;
+    }
+  }
+  .works-description-left,
+  .works-description-right {
+    &::after {
+      transition: all 0.5s ease;
+      border-radius: 50%;
+      content: "";
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      top: 25px;
+      z-index: 1;
+      background-color: $primary;
+    }
+    &:hover {
+      &::after {
+        box-shadow: 0px 0px 5px 2px $primary;
+      }
+    }
+  }
+  .works-description-left {
+    &::after {
+      right: -7px;
+    }
+  }
+  .works-description-right {
+    &::after {
+      left: -8px;
+    }
+  }
+}
+
+@media (min-width: 200px) and (max-width: 991.98px) {
+  .timeline-page {
+    &::after {
+      margin: 0;
+    }
+  }
+  .timeline-item {
+    .works-description-right {
+      &::after {
+        left: 5px;
+        top: 25px;
+      }
+    }
+    .works-description-left {
+      text-align: left;
+      &::after {
+        left: 5px;
+        top: 25px;
+      }
+    }
+  }
+}

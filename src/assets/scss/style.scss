@@ -1,0 +1,48 @@
+/* Template Name: Landsay
+   Author: Themesdesign
+   File Description: Main Css file of the template
+*/
+
+/****************************************
+
+01.variables
+02.general
+03.helper
+04.switcher
+05.components
+06.loader
+07.menu
+08.home
+09.feature
+10.process
+11.cta
+12.testimonial
+13.pricing
+14.team
+15.contact
+16.footer
+17.blog
+18.auth
+
+*****************************************/
+
+@import "variables";
+@import "general";
+@import "helper";
+@import "switcher";
+@import "components";
+@import "loader";
+@import "menu";
+@import "home";
+@import "feature";
+@import "process";
+@import "cta";
+@import "testimonial";
+@import "pricing";
+@import "team";
+@import "contact";
+@import "footer";
+
+/**************Inner Pages******************/
+@import "blog";
+@import "auth";

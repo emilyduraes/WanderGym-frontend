@@ -1,0 +1,112 @@
+/* default.css */
+
+
+/* color */
+.text-primary,
+.btn-outline-primary,
+.navbar .navbar-nav .nav-item .nav-link:hover,
+.navbar .navbar-nav .nav-item .nav-link:focus,
+.navbar .navbar-nav .nav-item .nav-link.active,
+.navbar .navbar-nav .nav-item .nav-link:hover.dropdown-toggle::after,
+.navbar .navbar-nav .nav-item .nav-link.active.dropdown-toggle::after,
+.navbar .navbar-nav .nav-item .nav-link:focus.dropdown-toggle::after,
+.navbar .navbar-nav .nav-item .nav-link:active.dropdown-toggle::after,
+.nav-sticky .navbar-nav .nav-item .nav-link:hover,
+.nav-sticky .navbar-nav .nav-item .nav-link:active,
+.nav-sticky .navbar-nav .nav-item .nav-link:focus,
+.nav-sticky .navbar-nav .nav-item .nav-link.active,
+.nav-sticky .navbar-nav .nav-item .nav-link.active .dropdown-toggle:after,
+.primary-link:hover,
+.feature-icon,
+.social-list .social-icon:hover,
+.testimonial-box .testi-img .quote-icon,
+.faq .icon {
+    color: #3f8efc !important;
+}
+
+
+
+/* background-color */
+.bg-primary,
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active,
+.btn-outline-primary.active,
+.works-description-left::after,
+.works-description-right::after,
+.form-check-input:checked,
+.works-description-left::after,
+.works-description-right::after,
+.ribbon,
+.sidebar .sd-title::after,
+.pagination .page-item .page-link:hover, 
+.pagination .page-item .page-link.active, 
+.pagination .page-item .page-link:focus,
+.swiper-button-next, .swiper-button-prev,
+#back-to-top:hover,
+.sidebar .tagcloud a:hover {
+    background-color: #3f8efc !important;
+}
+
+/* btn box-shadow */
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.focus,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary .open>.dropdown-toggle.btn-primary,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active,
+.btn-outline-primary.active,
+.btn-outline-primary.focus,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+.btn-outline-primary .open>.dropdown-toggle.btn-primary {
+    box-shadow: 0px 8px 20px -6px rgba(63, 142, 252, 0.6);
+}
+
+
+/* border-color */
+.form-control:focus,
+.form-check-input:checked,
+.border-primary,
+.btn-primary,
+.btn-outline-primary,
+.social-list .social-icon:hover {
+    border-color: #3f8efc !important;
+}
+
+/* slider */
+.swiper-pagination-bullet {
+    background-color: rgba(63, 142, 252, 0.9);
+}
+
+
+/* rgba background */
+.timeline-page::after,
+.price-box .price-features i,
+.faq .icon {
+    background-color: rgba(63, 142, 252, 0.15);
+}
+
+
+/* process box-shadow */
+.works-description-left:hover::after,
+.works-description-right:hover::after {
+    box-shadow: 0px 0px 5px 2px #3f8efc !important;
+}
+
+/* feature box */
+.feature-icon,
+.bg-home4 {
+    background-color: rgba(63, 142, 252, 0.2);
+}
+

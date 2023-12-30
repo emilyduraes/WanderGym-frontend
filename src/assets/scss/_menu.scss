@@ -1,0 +1,138 @@
+//
+// menu.scss
+//
+
+.navbar {
+  transition: all 0.5s ease;
+  padding: 0px;
+  background-color: $white;
+  .navbar-brand {
+    transition: all 0.5s ease;
+    line-height: 67px;
+    padding: 0px;
+  }
+  .navbar-nav {
+    .nav-item {
+      >.nav-link {
+        color: $dark;
+        font-size: 13px;
+        padding: 24px 8px;
+        font-weight: $font-weight-semibold;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        background-color: transparent;
+        margin: 0 6px;
+        transition: all 0.3s ease;
+        font-family: $font-family-base;
+        &:hover,
+        &:active,
+        &.active {
+          color: $primary;
+        }
+      }
+      &.dropdown {
+        .dropdown-menu {
+          font-size: 12px;
+          font-weight: 600;
+          text-transform: uppercase;
+          padding-left: 8px;
+          padding-right: 8px;
+          border-color: rgba($black, 0.04);
+          box-shadow: $box-shadow;
+          animation: DropDownSlide .3s;
+          animation-fill-mode: both;
+          li {
+            .nav-link {
+              color: $dark;
+              &:hover {
+                color: $primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .navbar-toggler {
+    padding: 0px;
+    border: none;
+    font-size: 24px;
+    &:focus {
+      box-shadow: none;
+    }
+  }
+  .navbar-brand {
+    .logo-light {
+      display: inline-block;
+    }
+    .logo-dark {
+      display: none;
+    }
+  }
+}
+
+//nav-sticy
+.nav-sticky {
+  &.navbar {
+    margin-top: 0px;
+    box-shadow: 0px 3px 10px 0px rgba(38, 107, 193, 0.08);
+    .navbar-brand {
+      line-height: 59px;
+      padding: 0px;
+    }
+    .navbar-nav {
+      .nav-item {
+        >.nav-link {
+          padding: 20px 8px;
+        }
+      }
+    }
+  }  
+  .navbar-brand {
+    .logo-dark {
+      display: inline-block;
+    }
+    .logo-light {
+      display: none;
+    }
+  }
+}
+
+.navbar-light {
+  background-color: transparent;
+}
+.nav-sticky {
+  &.navbar-light {
+    background-color: $white;
+  }
+}
+
+@keyframes DropDownSlide {
+  100% {
+      margin-top: -1px;
+  }
+  0% {
+      margin-top: 8px;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar,.navbar.nav-sticky {
+    padding: 12px 0;
+    background-color: $white;
+    .navbar-nav {
+      .nav-item {
+        >.nav-link {
+          padding: 10px 8px;
+        }
+        &.dropdown {
+          .dropdown-menu {
+            padding-left: 25px;
+            border: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}

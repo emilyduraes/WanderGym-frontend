@@ -1,0 +1,153 @@
+//
+//home.scss
+//
+
+#home {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.home-desc {
+  max-width: 650px;
+  margin: 0 auto;
+  font-size: 17px;
+  color: rgba($white, 0.7);
+}
+
+.bg-home {
+  padding: 378px 0 305px 0;
+  @media (max-width: 991.98px) {
+    padding: 190px 0 135px 0;
+  }
+}
+
+.home-subtitle {
+  font-weight: 700;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+//home-2
+.bg-home2 {
+  padding: 220px 0 150px 0;
+  @media (max-width: 991.98px) {
+    padding: 180px 0 110px 0;
+  }
+}
+
+//home-3
+
+.home-slider {
+  position: relative;
+  .swiper-slide{
+    padding: 250px 0 180px 0;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  height: 44px;
+  width: 44px;
+  line-height: 44px;
+  border-radius: 50%;
+  background-color: $primary;
+  color: $white;
+  &::after {
+    font-size: 15px;
+  }
+  @media (max-width: 767.98px) {
+     display: none;
+   }
+}
+
+//home-4
+
+.bg-home4 {
+  padding: 160px 0 50px 0;
+  background-color: rgba($primary, 0.2);
+}
+
+.shape {
+  position: absolute;
+  pointer-events: none;
+  right: 0;
+  bottom: 0px;
+  left: 0;
+}
+
+.subscribe-form {
+  form {
+    position: relative;
+    max-width: 600px;
+    margin: 0px auto;
+  }
+  input {
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 17px;
+    color: $dark ;
+    border: none;
+    outline: none;
+    padding-right: 180px;
+    padding-left: 30px;
+    background-color: rgba($white, 0.85);
+    border-radius: 30px;
+  }
+  button {
+    position: absolute;
+    text-transform: uppercase;
+    top: 6px;
+    right: 8px;
+    outline: none;
+    border-radius: 30px;
+    font-size: 16px;
+    padding: 9px 30px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .home-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+//home-5
+.bg-home5 {
+  padding-top: 140px;
+  background: linear-gradient(rgb(72, 85, 99), rgb(41, 50, 60));
+}
+
+.home-dashboard {
+  position: relative;
+  margin-bottom: -60px;
+  z-index: 1;
+  @media (max-width: 991.98px) {
+    top: -12px;
+  }
+}
+
+//home-6
+
+.bg-home6 {
+  padding: 350px 0px 330px 0;
+  @media (max-width: 991.98px) {
+    padding: 215px 0px;
+  }
+}
+
+#myVideo {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+

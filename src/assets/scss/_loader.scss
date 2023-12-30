@@ -1,0 +1,76 @@
+//
+// Loader
+//
+
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $white;
+  z-index: 999999;
+  transition: all 0.5s ease;
+  visibility: visible;
+  opacity: 1;
+  #status {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.load {
+  padding: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: center center;
+  transform: translate(-50%, -50%) rotate(135deg);
+  width: 50px;
+  height: 50px;
+}
+.load hr {
+  border: 0;
+  margin: 0;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: spin 2s ease infinite;
+}
+
+.load :first-child {
+  background: $success;
+  animation-delay: -1.5s;
+}
+.load :nth-child(2) {
+  background: $primary;
+  animation-delay: -1s;
+}
+.load :nth-child(3) {
+  background: $warning;
+  animation-delay: -0.5s;
+}
+.load :last-child {
+  background: $dark;
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    transform: translateX(200%);
+  }
+  25% {
+    transform: translateY(200%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateY(0);
+  }
+}

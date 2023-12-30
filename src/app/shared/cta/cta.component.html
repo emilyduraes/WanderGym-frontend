@@ -1,0 +1,54 @@
+
+<!-- START CTA -->
+<section class="bg-cta" style="background-image: url(assets/images/bg-cta02.jpg);">
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center text-white">
+                    <h2 class="mb-3">Let's get started with Landsay</h2>
+                    <p class="text-white-50 mb-0">They are a good way to get you started if you want to build
+                        something similar or use from existing apps which will reduce the cost, efforts and time of
+                        the developers.</p>
+                    <div class="mt-4 pt-4">
+                        <a href="javascript:void(0)" class="btn btn-outline-white" (click)="subscribe.show()">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <!--end col-->
+        </div>
+        <!--end row-->
+    </div>
+    <!--end container-->
+</section>
+<!-- END CTA -->
+
+ <!--start subscribe-Modal -->
+ <div bsModal #subscribe="bs-modal" class="modal fade" id="subscribe" tabindex="-1">
+ <div class="modal-dialog modal-dialog-centered">
+     <div class="modal-content">
+         <div class="modal-header border-0">
+             <button type="button" class="btn-close" (click)="subscribe.hide()" aria-label="Close"></button>
+         </div>
+         <!--end modal-header-->
+         <div class="modal-body text-center pt-0">
+             <img src="assets/images/subscribe.png" alt="subscribe" class="img-fluid" />
+             <h5 class="modal-title mt-2 mb-2" id="subscribeform">Subscribe</h5>
+             <p class="text-muted mb-4">
+                 Join your hand with us for a better life <br /> and beautiful future.
+             </p>
+             <form action="#">
+                 <div class="input-group mb-3">
+                     <input type="email" class="form-control border" id="subscribeemail"
+                         placeholder="Enter your email" />
+                     <button class="btn btn-primary btn-sm" type="submit" id="button-addon2">Subscribe</button>
+                 </div>
+             </form>
+         </div>
+         <!--end modal-body-->
+     </div>
+     <!--end modal-content-->
+ </div>
+ <!--end modal-dialog-->
+</div>
+<!--end SUBSCRIBE modal-->

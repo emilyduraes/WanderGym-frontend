@@ -1,0 +1,81 @@
+<!-- START FOOTER -->
+<footer class="bg-dark section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <ul class="list-inline social-list mb-0">
+                        <li class="list-inline-item "><a href="javascript: void(0);" class="social-icon footer-link"><i
+                                    class="mdi mdi-facebook"></i></a></li>
+                        <li class="list-inline-item ms-1"><a href="javascript: void(0);"
+                                class="social-icon footer-link"><i class="mdi mdi-twitter"></i></a></li>
+                        <li class="list-inline-item ms-1"><a href="javascript: void(0);"
+                                class="social-icon footer-link"><i class="mdi mdi-linkedin"></i></a></li>
+                        <li class="list-inline-item ms-1"><a href="javascript: void(0);"
+                                class="social-icon footer-link"><i class="mdi mdi-google-plus"></i></a></li>
+                    </ul>
+                    <!--end social-->
+                </div>
+                <div class="footer-terms">
+                    <ul class="mb-0 list-inline text-center mt-4">
+                        <li class="list-inline-item"><a href="javascript: void(0);" class="footer-link">Terms &
+                                Condition</a></li>
+                        <li class="list-inline-item ms-1"><a href="javascript: void(0);" class="footer-link">Privacy
+                                Policy</a></li>
+                        <li class="list-inline-item ms-1"><a href="javascript: void(0);" class="footer-link">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+                <!--end footer-terms-->
+                <div class="mt-4 pt-2 text-center">
+                    <p class="text-white-50 mb-0">{{year}} © Landsay - Design with <i
+                            class="mdi mdi-heart text-danger"></i> by
+                        <a href="https://themeforest.net/search/themesdesign" class="text-muted">Themesdesign.</a>
+                    </p>
+                </div>
+            </div>
+            <!--end row-->
+        </div>
+        <!--end row-->
+    </div>
+    <!--end container-->
+</footer>
+<!-- END FOOTER -->
+
+<!-- Style switcher -->
+<div id="style-switcher" style="left: -189px;">
+    <div>
+        <h6>Select your color</h6>
+        <ul class="pattern list-unstyled mb-0">
+            <li>
+                <a class="color1" href="javascript: void(0);" (click)="setColor('default')"></a>
+            </li>
+            <li>
+                <a class="color2" href="javascript: void(0);" (click)="setColor('success')"></a>
+            </li>
+            <li>
+                <a class="color3" href="javascript: void(0);" (click)="setColor('warning')"></a>
+            </li>
+            <li>
+                <a class="color4" href="javascript: void(0);" (click)="setColor('orange')"></a>
+            </li>
+            <li>
+                <a class="color5" href="javascript: void(0);" (click)="setColor('info')"></a>
+            </li>
+            <li>
+                <a class="color6" href="javascript: void(0);" (click)="setColor('purple')"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="bottom">
+        <a href="javascript:void(0);" class="settings rounded-end" (click)="toggleSwitcher()"><i
+                class="mdi mdi-cog mdi-spin"></i></a>
+    </div>
+</div>
+<!-- end switcher-->
+
+<!--start back-to-top-->
+<button (click)="topFunction()" id="back-to-top">
+    <i class="mdi mdi-arrow-up"></i>
+</button>
+<!--end back-to-top-->

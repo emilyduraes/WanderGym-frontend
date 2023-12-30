@@ -1,0 +1,128 @@
+//
+//blog.scss
+//
+
+.blog-box {
+  .blog-img {
+    .bg-overlay {
+      transition: all 0.5s ease;
+      opacity: 0;
+    }
+    .author {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      transition: all 0.5s ease;
+      opacity: 0;
+      color: $white;
+    }
+  }
+  &:hover {
+    .blog-img {
+      .bg-overlay {
+        opacity: 0.7;
+      }
+      .author {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+.bg-blog {
+  padding: 190px 0 120px 0;
+  position: relative;
+  background-image: url("../images/blog/bg-blog.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  .bg-overlay {
+    background-color: rgba(25, 34, 45, 0.70);
+  }
+}
+
+.breadcrumb {
+  .breadcrumb-item {
+    a {
+      color: $white;
+      transition: all 0.5s ease;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+  .breadcrumb-item + .breadcrumb-item::before {
+    float: left;
+    padding-right: 0.5rem;
+    color: $light;
+    content: var(--bs-breadcrumb-divider, "->");
+  }
+}
+
+.date-box {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 5px 8px;
+  background-color: $light;
+  text-align: center;
+  z-index: 9;
+}
+
+.post-preview {
+  transition: all 0.5s ease;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.sidebar {
+  .tagcloud a {
+    background-color: $light;
+    color: $dark;
+    transition: all 0.5s ease;
+    &:hover {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+  .sd-title {
+    position: relative;
+    &::after {
+      content: "";
+      width: 40px;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: $primary;
+    }
+  }
+}
+
+/**********pagination***********/
+.pagination {
+  .page-item {
+    display: inline-block;
+    margin: 5px 6px 0 0;
+    .page-link {
+      border: 1px solid $gray-300;
+      border-radius: 3px;
+      color: $dark;
+      background-color: $light;
+      display: block;
+      float: none;
+      padding: 8px 15px;
+      box-shadow: none !important;
+      &.active,
+      &:focus,
+      &:hover {
+        z-index: 3;
+        color: $white;
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+  }
+}

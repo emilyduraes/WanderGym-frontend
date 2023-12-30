@@ -1,0 +1,51 @@
+//
+//cta.scss
+//
+
+
+.bg-cta{
+  padding: 120px 0px;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.play-btn {
+  height: 64px;
+  width: 64px;
+  font-size: 30px;
+  line-height: 64px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid $white;
+}
+.modal-backdrop.show {
+  opacity: 0.75;
+}
+
+/*************FAQ******************/
+
+.query-form{
+  background-color: $light;
+  padding: 45px 40px;
+  border-radius: 0.25rem;
+  .form-control {
+    border-color: transparent;
+    box-shadow: $box-shadow;
+  }
+}
+
+.faq{
+  .icon {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    color: $primary;
+    background: rgba($primary, 0.15);
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}

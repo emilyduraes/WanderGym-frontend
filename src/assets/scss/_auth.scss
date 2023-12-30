@@ -1,0 +1,28 @@
+
+
+.authentication-bg {
+    background-image: url('../images/bg-auth.png');
+    background-color: rgba($primary, 0.12);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+
+.auth-form {
+    input {
+        background-color: rgba($white, 0.09);
+        border-color: rgba($white, 0.15);
+        color: $light;
+        font-size: 14px;
+        &:focus {
+            color: $light;
+            background-color: rgba($white, 0.09);
+        }
+        &::placeholder {
+            color: $gray-500;
+          }
+    }
+}

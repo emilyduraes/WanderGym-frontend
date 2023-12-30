@@ -1,0 +1,58 @@
+//
+//testimonial.scss
+//
+
+.testimonial-box {
+  max-width: 681px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+  .testi-img {
+    img {
+      height: 82px;
+      width: 82px;
+    }
+    .quote-icon {
+      height: 30px;
+      width: 30px;
+      line-height: 30px;
+      top: 1px;
+      right: -8px;
+      font-size: 22px;
+      position: absolute;
+      background-color: $white;
+      border-radius: 50%;
+      color: $primary;
+    }
+  }
+}
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 0;
+  margin-right: 8px;
+  background-color: rgba($primary, 0.9);
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0.6;
+  &.swiper-pagination-bullet-active {
+    transform: rotate(45deg);
+    opacity: 1;
+  }
+}
+
+// client-logo
+
+.client-images {
+  img {
+    max-width: 90px;
+    opacity: 0.4;
+    transition: all 0.5s ease;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

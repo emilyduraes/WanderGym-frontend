@@ -1,0 +1,92 @@
+<!-- START FAQ -->
+<section class="section" id="faq">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center mb-5 pb-2">
+                    <h3>How can we Help you?</h3>
+                    <p class="text-muted mt-2">It is a long established fact that a reader will be of a page when
+                        established fact looking at its layout.</p>
+                </div>
+            </div>
+            <!--end col-->
+        </div>
+        <!--end row-->
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mb-4 pb-2">
+                    <div class="faq d-flex">
+                        <div class="icon flex-shrink-0 me-3">
+                            ?
+                        </div>
+                        <div class="content">
+                            <h5 class="fs-17">Design Your FAQ Page?</h5>
+                            <p class="text-muted mb-0">If your FAQ page does consist of multiple pages, then one
+                                critical element you'll need to consider is your navigation bar. If your search bar
+                                is tricky to use or doesn't yield desired results, customers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4 pb-2">
+                    <div class="faq d-flex">
+                        <div class="icon flex-shrink-0 me-3">
+                            ?
+                        </div>
+                        <div class="content">
+                            <h5 class="fs-17">Monitor the FAQ Page's Performance?</h5>
+                            <p class="text-muted mb-0">In this detailed guide, we’re going to dive deep into the
+                                whole concept of FAQs. To
+                                discover their main purpose and to find out how it can help generate more sales and
+                                leads for your business.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4 pb-2">
+                    <div class="faq d-flex">
+                        <div class="icon flex-shrink-0 me-3">
+                            ?
+                        </div>
+                        <div class="content">
+                            <h5 class="fs-17">Why you should make an FAQ page?</h5>
+                            <p class="text-muted mb-0">Every business and product website comes with a set of
+                                default pages like an “About”
+                                page, “Contact” page, “Privacy Policy” page, and more. A FAQ page is one of the few
+                                must-have pages on this list.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end col-->
+            <div class="col-lg-6">
+                <div class="mb-4 pb-4">
+                    <div class="faq d-flex">
+                        <div class="icon flex-shrink-0 me-3">
+                            ?
+                        </div>
+                        <div class="content">
+                            <h5 class="fs-17"> Regularly update each page?</h5>
+                            <p class="text-muted mb-0"> Most online support teams spend hours of their valuable time
+                                every day answering
+                                these general questions. While it could’ve been easily avoided by placing a FAQs
+                                section on the website.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="query-form">
+                    <h6 class="fs-18">Have any quetions?</h6>
+                    <p class="text-muted">Send your quetions in our mail</p>
+                    <form action="#">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter your email">
+                            <button class="btn btn-primary" type="submit">submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--end col-->
+        </div>
+        <!--end row-->
+    </div>
+    <!--end container-->
+</section>
+<!-- END FAQ -->

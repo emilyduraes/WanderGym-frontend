@@ -1,0 +1,39 @@
+//
+//contact.scss
+//
+
+
+.form-control {
+    padding: 12px 20px;
+    border-color: rgba($dark, 0.20);
+    box-shadow: rgba(149, 157, 165, 0.08) 0px 8px 24px;
+    &:focus {
+      box-shadow: rgba(149, 157, 165, 0.08) 0px 8px 24px;
+      border-color: $primary;
+    }
+    &::placeholder {
+      color: $gray-400;
+    }
+  }
+  
+
+.contact-form {
+    .input-group-text {
+        padding: 12px 15px;
+        border: none;
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        bottom: 0;
+        &::before {
+            content: "|";
+            color: rgba($dark, 0.50);
+            right: 0px;
+            position: absolute;
+        }
+    }
+    .form-control {
+        padding-left: 58px;
+    }
+}
