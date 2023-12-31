@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
   { path: '',component:LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) }, 
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'reset-password',
     component:ResetpasswordComponent
+  },
+  {
+    path: 'user-dashboard',
+    component:UserDashboardComponent
   }
 ];
 
