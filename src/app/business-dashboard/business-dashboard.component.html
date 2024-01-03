@@ -1,0 +1,152 @@
+ 
+<!--start page Loader -->
+<div id="preloader">
+    <div id="status">
+        <div class="load">
+            <hr />
+            <hr />
+            <hr />
+            <hr />
+        </div>
+    </div>
+</div>
+<!--end page Loader -->
+ 
+ <!-- START NAVBAR -->
+ <nav  id="navbar" class="navbar navbar-expand-lg fixed-top sticky">
+        <a class="navbar-brand" href="/"><img src="assets/images/gym-icon.png" alt="" height="30"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" (click)="toggleMenu()" aria-label="Toggle navigation">
+            <i class="mdi mdi-menu text-muted"></i>
+        </button>
+        <div class="collapse navbar-collapse" scrollSpy id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbar-navList">
+                <li class="nav-item">
+                    <a class="nav-link" href="!#">My Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Logout</a>
+                </li>
+            </ul>
+            <!--end navbar-nav-->
+            
+        </div>
+        <!--end collapse-->
+</nav>
+<!-- END NAVBAR -->
+
+<section class="bg-home4 overflow-hidden" id="home">
+    <div class="container">
+        <div class="position-relative" style="z-index: 1;">
+            <div class="row align-items-center">
+                <div class="col-xl-5 col-lg-6">
+                    <div>
+                        <h6 class="home-subtitle text-primary mb-4">Wander Gym</h6>
+                        <h1>Hello, business.name</h1>
+                        <p class="text-black-50 fs-17 pt-4">Thank you for being our partner at making the health and wellness 
+                            business more acessible to everyone, everywhere.
+                            Here you can see the main status of your partnership with us.
+                        </p>
+                    </div>
+                </div>
+                <!--end col-->
+                <div class="col-lg-6 offset-xl-1">
+                    <div class="mt-lg-0 mt-5">
+                        <img src="assets/images/home/home2.webp" alt="home04" class="home-img">
+                    </div>
+                </div>
+            </div>
+            <!--end row-->
+
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center mt-3">
+                        <h3>
+                            <span class="counter_value" [countUp]="1499">120</span><span>+</span>
+                        </h3>
+                        <p class="text-muted">Complete Sessions</p>
+                    </div>
+                </div>
+                <!--end col-->
+        
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center mt-3">
+                        <h3>
+                            <span class="counter_value" [countUp]="1080">120</span><span>K</span>
+                        </h3>
+                        <p class="text-muted">Satisfied Clients</p>
+                    </div>
+                </div>
+                <!--end col-->
+        
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center mt-3">
+                        <h3 class="counter_value" [countUp]="608"></h3>
+                        <p class="text-muted">Daily Attendance</p>
+                    </div>
+                </div>
+                <!--end col-->
+        
+                <div class="col-md-6 col-lg-3">
+                    <div class="text-center mt-3">
+                        <h3 class="counter_value" [countUp]="125"></h3>
+                        <p class="text-muted">Monthly Attendance</p>
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+        </div>
+    </div>
+    <!--end container-->
+</section>
+
+
+<!-- START FOOTER -->
+<footer class="bg-dark section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <ul class="list-inline social-list mb-0">
+                        <li class="list-inline-item "><a href="javascript: void(0);" class="social-icon footer-link"><i
+                                    class="mdi mdi-facebook"></i></a></li>
+                        <li class="list-inline-item ms-1"><a href="javascript: void(0);"
+                                class="social-icon footer-link"><i class="mdi mdi-twitter"></i></a></li>
+                        <li class="list-inline-item ms-1"><a href="javascript: void(0);"
+                                class="social-icon footer-link"><i class="mdi mdi-linkedin"></i></a></li>
+                        <li class="list-inline-item ms-1"><a href="javascript: void(0);"
+                                class="social-icon footer-link"><i class="mdi mdi-google-plus"></i></a></li>
+                    </ul>
+                    <!--end social-->
+                </div>
+                <div class="footer-terms">
+                    <ul class="mb-0 list-inline text-center mt-4">
+                        <li class="list-inline-item"><a href="javascript: void(0);" class="footer-link">Terms &
+                                Condition</a></li>
+                        <li class="list-inline-item ms-1"><a href="javascript: void(0);" class="footer-link">Privacy
+                                Policy</a></li>
+                        <li class="list-inline-item ms-1"><a href="javascript: void(0);" class="footer-link">Contact
+                                Us</a></li>
+                    </ul>
+                </div>
+                <!--end footer-terms-->
+                <div class="mt-4 pt-2 text-center">
+                    <p class="text-white-50 mb-0">{{year}} © WanderGym <i
+                            class="mdi mdi-heart text-danger"></i>
+                    </p>
+                </div>
+            </div>
+            <!--end row-->
+        </div>
+        <!--end row-->
+    </div>
+    <!--end container-->
+</footer>
+<!-- END FOOTER -->
+
+<!--start back-to-top-->
+<button (click)="topFunction()" id="back-to-top">
+    <i class="mdi mdi-arrow-up"></i>
+</button>
+<!--end back-to-top-->

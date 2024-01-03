@@ -1,4 +1,4 @@
-export class Business {
+export interface Business {
     id: number;
     name: string;
     email: string;
@@ -7,5 +7,4 @@ export class Business {
     description: string;
     type: string;
     active: boolean;
-
 }
