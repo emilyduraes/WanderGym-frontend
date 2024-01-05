@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 // Counter
 import { CountUpModule } from 'ngx-countup';
@@ -21,6 +21,9 @@ import { BusinessDashboardComponent } from './business-dashboard/business-dashbo
 // Service
 import { UserService } from './@core/services/user.service';
 import { BusinessService } from './@core/services/business.service';
+import { AuthInterceptorService } from './@core/services/auth-interceptor.service';
+import { LoginService } from './@core/services/login.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -38,11 +41,18 @@ import { BusinessService } from './@core/services/business.service';
     LayoutModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    CountUpModule
+    CountUpModule,
+    FormsModule
   ],
   providers: [
     UserService,
-    BusinessService
+    BusinessService,
+    LoginService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

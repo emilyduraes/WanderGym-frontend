@@ -16,15 +16,17 @@
                                 <p class="text-white-50 mb-0">Login to continue with Wander Gym</p>
                             </div>
                        </div>
-                        <form class="auth-form text-white">
+                        <form class="auth-form text-white" #authForm="ngForm" (ngSubmit)="handleLogin()">
+                            <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+                            <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
                             <div class="mb-3">
                                 <label class="form-label" for="email">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="Username">
+                                <input type="text" class="form-control" id="username" placeholder="Username" name="login-username" [ngModel]="auth?.email" (ngModelChange)="auth.email = $event" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="userpassword">Password</label>
-                                <input type="password" class="form-control" id="userpassword"
-                                    placeholder="Password">
+                                <input type="password" class="form-control" id="userpassword" 
+                                    placeholder="Password" name="login-password" [ngModel]="auth?.password" (ngModelChange)="auth.password = $event" required>
                             </div>
                             <div class="mb-4">
                                 <a routerLink="/reset-password" class="float-end text-white-50">Forgot Password</a>
@@ -33,9 +35,10 @@
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <button type="submit" class="btn btn-primary w-100">Login Now</button>
+                                <button type="submit" class="btn btn-primary w-100" (click)=handleLogin()>Login Now</button>
                             </div>
-                        </form><!-- end form -->
+                        </form>
+                        <!-- end form -->
 
                         <div class="mt-5 text-center text-white-50">
                             <p>Don't have an account? <a routerLink="/register" class="fw-medium text-white text-decoration-underline"> Register </a></p>

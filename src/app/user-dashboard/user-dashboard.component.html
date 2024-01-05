@@ -25,7 +25,7 @@
                     <a class="nav-link" href="!#">My Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Logout</a>
+                    <a class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
                 </li>
             </ul>
             <!--end navbar-nav-->
@@ -111,8 +111,8 @@
 
         <!-- PERSISTED FROM DB SECTION -->
         <div class="row">
-            <div class="col-lg-4 col-md-6" >
-                <div class="card blog-box border-0 mt-4"  *ngFor="let b of businesses">
+            <div class="col-lg-4 col-md-6" *ngFor="let b of businesses">
+                <div class="card blog-box border-0 mt-4">
                     <div class="blog-img position-relative">
                         <img src="assets/images/blog/blog-1.jpg" alt="Blog" class="img-fluid rounded">
                         <div class="bg-overlay rounded"></div>
