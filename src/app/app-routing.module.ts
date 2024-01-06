@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { BusinessDashboardComponent } from './business-dashboard/business-dashboard.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   { path: '',component:LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) }, 
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path: 'business-dashboard',
     component:BusinessDashboardComponent
+  },
+  {
+    path: 'admin-dashboard',
+    component:AdminDashboardComponent
   }
 ];
 

@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, shareReplay } from 'rxjs';
 import { Auth } from '../entity/auth';
 
 @Injectable({
@@ -8,72 +8,63 @@ import { Auth } from '../entity/auth';
 })
 export class LoginService {
 
-  USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
-  USER_NAME_ROLE = "null";
-  USER_NAME_ID = 0;
-  public username: String;
-  public password: String;
+  USER_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
+  USER_ROLE = "null";
+  USER_ID = 0;
+  USER_TOKEN = "null";
 
   private authUrl: string;
-  private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+  private options = { headers: new HttpHeaders().set('Content-Type', 'application/json')};
+  private authResponse: Observable<any>;
 
   constructor(private http: HttpClient) {
     this.authUrl = "http://localhost:8080/wandergym/auth"
    }
 
-  loginService(username: String, password: String) {
-    return this.http.get(`http://localhost:8080/wandergym/auth/login`,
-      { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
-        this.username = username;
-        this.password = password;
-        this.registerSuccessfulLogin(username, password);
-      }));
-  }
-
   public login(auth: Auth): Observable<Auth>{
     const url = `${this.authUrl}/login`;
-    return this.http.post<Auth>(url, auth, this.options);
-  }
-
-  createBasicAuthToken(username: String, password: String) {
-    return 'Basic ' + window.btoa(username + ":" + password)
-  }
-
-  registerSuccessfulLogin(username, password) {
-    sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+    this.authResponse = this.http.post<Auth>(url, auth, this.options).pipe(shareReplay());
+    return this.authResponse;   
   }
 
   public logout() {
-    sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
-    this.username = null;
-    this.password = null;
+    const url = `${this.authUrl}/logout`;
+    return this.http.get<Auth>(url);
+  }
+
+  public register(auth: Auth): Observable<Auth>{
+    const url = `${this.authUrl}/register`;
+    return this.http.post<Auth>(url, auth, this.options);
+
   }
 
   isUserLoggedIn() {
-    let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    let user = sessionStorage.getItem(this.USER_SESSION_ATTRIBUTE_NAME)
     if (user === null) return false
     return true
   }
 
   getLoggedInUserName() {
-    let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
+    let user = sessionStorage.getItem(this.USER_SESSION_ATTRIBUTE_NAME)
     if (user === null) return ''
     return user
   }
   
+  public getAuthObservableResponse(): Observable<any>{
+    return this.authResponse;
+  }
 
-  // public save(business: Business) {
-  //   const url = `${this.businessUrl}/signin`
-  //   return this.http.post<Business>(url, business);
-  // }
+  public getToken(): string{
+    this.authResponse.subscribe({
+      next: (result) => {
+        this.USER_ROLE = result.login.responseObject.authorities[0].authority;
+        this.USER_TOKEN = result.login.responseObject.basicAuthorization;   
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    });
+    return this.USER_TOKEN;
+  }
 
-  // public update(id: number, business: Business){
-  //   const url = `${this.businessUrl}/id/${id}`
-  //   return this.http.put<Business>(url, business);
-  // }
-
-  // public delete(id: number){
-  //   const url = `${this.businessUrl}/id/${id}`
-  //   return this.http.delete<Business>(url);
-  // }
 }

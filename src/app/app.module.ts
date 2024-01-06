@@ -24,6 +24,7 @@ import { BusinessService } from './@core/services/business.service';
 import { AuthInterceptorService } from './@core/services/auth-interceptor.service';
 import { LoginService } from './@core/services/login.service';
 import { FormsModule } from '@angular/forms';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     ResetpasswordComponent,
     UserDashboardComponent,
-    BusinessDashboardComponent
+    BusinessDashboardComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
