@@ -27,7 +27,7 @@ export class AuthGuard implements CanActivate {
             }
 
             //check if user has business auth
-            if(route.url[0].path == 'business-dashboard' && this.loginService.getUserRole() === 'ROLE_USER'){
+            if(route.url[0].path == 'business-dashboard' && this.loginService.getUserRole() === 'ROLE_BUSINESS'){
                 // authorised so return true
                 return true;
             }
