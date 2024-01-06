@@ -9,10 +9,13 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { BusinessDashboardComponent } from './business-dashboard/business-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AuthGuard } from './@core/_helpers/auth-guard';
 
 const routes: Routes = [
-  { path: '',component:LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) }, 
-
+  { 
+    path: '',
+    component:LayoutComponent, loadChildren: () => import('./pages/pages.module').then(m => m.PagesModule) 
+  }, 
   {
     path:'login',
     component:LoginComponent
@@ -31,15 +34,18 @@ const routes: Routes = [
   },
   {
     path: 'user-dashboard',
-    component:UserDashboardComponent
+    component:UserDashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'business-dashboard',
-    component:BusinessDashboardComponent
+    component:BusinessDashboardComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'admin-dashboard',
-    component:AdminDashboardComponent
+    component:AdminDashboardComponent,
+    canActivate: [AuthGuard]
   }
 ];
 

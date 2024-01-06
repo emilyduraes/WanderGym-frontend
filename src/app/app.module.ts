@@ -21,7 +21,7 @@ import { BusinessDashboardComponent } from './business-dashboard/business-dashbo
 // Service
 import { UserService } from './@core/services/user.service';
 import { BusinessService } from './@core/services/business.service';
-import { AuthInterceptorService } from './@core/services/auth-interceptor.service';
+import { AuthInterceptor } from './@core/_helpers/auth-interceptor';
 import { LoginService } from './@core/services/login.service';
 import { FormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
@@ -52,7 +52,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     LoginService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
+      useClass: AuthInterceptor,
       multi: true
     }
   ],
