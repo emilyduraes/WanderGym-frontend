@@ -67,10 +67,4 @@ export class LoginComponent implements OnInit {
     })
   }     
 
-  // registerSuccessfulLogin(response: Auth) {
-  //   sessionStorage.setItem(this.USER_SESSION_ATTRIBUTE_NAME, response.login.responseObject.username);
-  //   sessionStorage.setItem(this.USER_TOKEN, response.login.responseObject.basicAuthorization);
-  //   sessionStorage.setItem(this.USER_ROLE, response.login.responseObject.authorities[0].authority)
-  // }
-
 }
