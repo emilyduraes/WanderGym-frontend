@@ -15,29 +15,98 @@
                                 <p class="text-white-50 mb-0">Register for a new account with Wander Gym</p>
                             </div>
                        </div>
-                        <form class="auth-form text-white">
-                            <div class="mb-3">
-                                <label for="firstname" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="fullname"
-                                    placeholder="Full Name">
-                            </div>
+                        <form class="auth-form text-white" (ngSubmit)="handleRegister()">
                             <div class="mb-3">
                                 <label class="form-label" for="email">Email</label>
                                 <input type="email" class="form-control" id="email"
-                                    placeholder="Enter Email">
+                                    placeholder="Enter Email" name="register-username" [ngModel]="auth?.email" (ngModelChange)="auth.email = $event" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="userpassword">Password</label>
                                 <input type="password" class="form-control" id="userpassword"
-                                    placeholder="Enter password">
+                                    placeholder="Enter password" name="register-password" [ngModel]="auth?.password" (ngModelChange)="auth.password = $event" required>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label">Select your Account type:</label> 
+                                <div class="row">
+                                    <label for="ROLE_USER" class="form-label">User</label> 
+                                    <input type="radio" class="form-check" id="usertype" name="register-user-type" value="ROLE_USER" [ngModel]="auth?.role" (ngModelChange)="auth.role = $event" required> 
+                                    <label for="ROLE_BUSINESS" class="form-label">Business</label> 
+                                    <input type="radio" class="form-check" id="usertype" name="register-user-type" value="ROLE_BUSINESS" [ngModel]="auth?.role" (ngModelChange)="auth.role = $event" required> 
+                                </div>
+                            </div>
+
+                            <!-- USER FORM -->
+                            <div id="user-form" *ngIf='auth.role === userRole'>
+                                <div class="mb-3">
+                                    <label for="user-fullname" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="user-fullname"
+                                        placeholder="Full Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="user-dob" class="form-label">Date of Birth</label>
+                                    <input type="text" class="form-control" id="user-dob"
+                                        placeholder="Date of Birth" onfocus="(this.type='date')" onblur="(this.type= this.value ? 'date' : 'text')" required/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="user-address" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="user-address"
+                                        placeholder="Address" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="user-phonenumber" class="form-label">Phone Number</label>
+                                    <input type="number" class="form-control" id="user-phonenumber"
+                                        placeholder="Phone Number" required>
+                                </div>    
+                            </div>
+                            <!-- END USER FORM -->
+
+                            <!-- BUSINESS FORM -->
+                            <div id="business-form" *ngIf='auth.role === businessRole'>
+                                <div class="mb-3">
+                                    <label for="business-name" class="form-label">Business Name</label>
+                                    <input type="text" class="form-control" id="business-name"
+                                        placeholder="Business Name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="business-address" class="form-label">Address</label>
+                                    <input type="text" class="form-control" id="business-address"
+                                        placeholder="Address" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="business-phonenumber" class="form-label">Phone Number</label>
+                                    <input type="number" class="form-control" id="business-phonenumber"
+                                        placeholder="Phone Number" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="business-type" class="form-label">Type</label>
+                                    <input type="text" class="form-control" id="business-type"
+                                        placeholder="Descripe your business type" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="business-type" class="form-label">Type</label>
+                                    <select class="form-control" [(ngModel)]="business.type">
+                                        <option default class="form-control">Select your business type</option>
+                                        <option class="form-control">Gym</option>	
+                                        <option class="form-control">Yoga Studio</option>
+                                        <option class="form-control">Swimming</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <input type="text" class="form-control" id="business-description"
+                                        placeholder="Describe your business" required>
+                                </div>    
+                            </div>
+                            <!-- END BUSINESS FORM -->
+
                             <div class="mb-4">
                                 <div class="form-check"><input class="form-check-input" type="checkbox" id="flexCheckDefault">
                                     <label class="form-check-label" for="flexCheckDefault">I agree to the <a href="javascript: void(0);" class="text-white text-decoration-underline">Terms and conditions</a></label>
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <button type="submit" class="btn btn-primary w-100">Register Now</button>
+                                <button type="submit" class="btn btn-primary w-100" (click)=handleRegister()>Register Now</button>
                             </div>
                         </form><!-- end form -->
 
