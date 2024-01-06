@@ -13,8 +13,28 @@ export class AuthGuard implements CanActivate {
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const user = this.loginService.isUserLoggedIn();
         if (user) {
-            // authorised so return true
-            return true;
+
+            //check if user has admin auth
+            if(this.loginService.getUserRole() === 'ROLE_SYSADMIN'){
+                // authorised so return true
+                return true;
+            }
+
+            //check if user has user auth
+            if(route.url[0].path == 'user-dashboard' && this.loginService.getUserRole() === 'ROLE_USER'){
+                // authorised so return true
+                return true;
+            }
+
+            //check if user has business auth
+            if(route.url[0].path == 'business-dashboard' && this.loginService.getUserRole() === 'ROLE_USER'){
+                // authorised so return true
+                return true;
+            }
+            
+            // not authorized so redirect to login page with the return url
+            this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
+            return false;
         }
 
         // not logged in so redirect to login page with the return url

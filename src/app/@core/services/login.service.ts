@@ -74,6 +74,18 @@ export class LoginService {
     return this.USER_TOKEN;
   }
 
+  public getUserRole(): string{
+    this.authResponse.subscribe({
+      next: (result) => {
+        this.USER_ROLE = result.login.responseObject.authorities[0].authority;
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    });
+    return this.USER_ROLE;
+  }
+
   public createNewUser(auth: Auth, user?: User, business?: Business){
 
   }
