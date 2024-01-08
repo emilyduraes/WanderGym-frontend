@@ -29,7 +29,6 @@ export class LoginComponent implements OnInit {
   loginSuccess = false;
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     private loginService: LoginService) {   }
 
@@ -39,7 +38,7 @@ export class LoginComponent implements OnInit {
   
   public handleLogin() {
 
-    this.USER_SESSION_ATTRIBUTE_NAME = this.auth.email;
+    this.USER_SESSION_ATTRIBUTE_NAME = this.auth.username;
     
     this.loginService.login(this.auth).subscribe({
       next: (result) => {

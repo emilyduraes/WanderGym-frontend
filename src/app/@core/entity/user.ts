@@ -1,9 +1,9 @@
 export interface User {
-    id: number;
+    id?: number; //optional value
     fullName: string;
     email: string;
     dob: Date;
     mobileNumber: number;
     address: string;
-    active: boolean;
+    active?: boolean; //optional value
 }

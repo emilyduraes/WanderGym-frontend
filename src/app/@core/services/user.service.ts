@@ -9,28 +9,31 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   private usersUrl: string;
+  private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+
 
   constructor(private http: HttpClient) {
     this.usersUrl = "http://localhost:8080/wandergym/user";
-   }
-
-  public findById(id: number): Observable<User>{
-    const url = `${this.usersUrl}/id/${id}`
-    return this.http.get<User>(url);
   }
-  
+
+  public findById(id: number): Observable<User> {
+    const url = `${this.usersUrl}/id/${id}`
+    return this.http.get<User>(url).pipe();
+  }
+
   public save(user: User) {
     const url = `${this.usersUrl}/signin`
-    return this.http.post<User>(url, user);
+    return this.http.post<User>(url, user, this.options).pipe();
   }
 
-  public update(id: number, user: User){
+  public update(id: number, user: User) {
     const url = `${this.usersUrl}/id/${id}`
-    return this.http.put<User>(url, user);
+    return this.http.put<User>(url, user, this.options).pipe();
   }
 
-  public delete(id: number){
+  public delete(id: number) {
     const url = `${this.usersUrl}/id/${id}`
-    return this.http.delete<User>(url);
+    return this.http.delete<User>(url).pipe();
   }
+
 }

@@ -21,7 +21,7 @@
                             <div class="alert alert-success" *ngIf='loginSuccess'>{{successMessage}}</div>
                             <div class="mb-3">
                                 <label class="form-label" for="email">Username</label>
-                                <input type="text" class="form-control" id="username" placeholder="Username" name="login-username" [ngModel]="auth?.email" (ngModelChange)="auth.email = $event" required>
+                                <input type="text" class="form-control" id="username" placeholder="Username" name="login-username" [ngModel]="auth?.username" (ngModelChange)="auth.username = $event" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="userpassword">Password</label>
@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             <div class="mt-3">
-                                <button type="submit" class="btn btn-primary w-100" (click)=handleLogin()>Login Now</button>
+                                <button type="submit" class="btn btn-primary w-100">Login Now</button>
                             </div>
                         </form>
                         <!-- end form -->

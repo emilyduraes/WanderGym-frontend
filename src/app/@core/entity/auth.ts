@@ -2,7 +2,7 @@ import { Business } from "./business";
 import { User } from "./user";
 
 export class Auth {
-    email: string;
+    username: string;
     password: string;
     role: string;
     user: User;
