@@ -6,8 +6,7 @@ import { UserService } from '../@core/services/user.service';
 import { BusinessService } from '../@core/services/business.service';
 import { Business } from '../@core/entity/business';
 import { User } from '../@core/entity/user';
-import { HttpHeaders } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -17,10 +16,6 @@ import { Observable, tap } from 'rxjs';
 export class RegisterComponent {
 
   year = (new Date().getFullYear());
-
-  USER_SESSION_ATTRIBUTE_NAME: string;
-  USER_ID = 0;
-  USER_TOKEN: string;
 
   auth: Auth;
   user: User = {
