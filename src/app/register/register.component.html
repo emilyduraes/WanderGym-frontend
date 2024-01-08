@@ -67,26 +67,21 @@
                                 <div class="mb-3">
                                     <label for="business-name" class="form-label">Business Name</label>
                                     <input type="text" class="form-control" id="business-name"
-                                        placeholder="Business Name" required>
+                                        placeholder="Business Name" name="register-business-name" [ngModel]="business?.name" (ngModelChange)="business.name = $event" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="business-address" class="form-label">Address</label>
                                     <input type="text" class="form-control" id="business-address"
-                                        placeholder="Address" required>
+                                        placeholder="Address" name="register-business-address" [ngModel]="business?.address" (ngModelChange)="business.address = $event" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="business-phonenumber" class="form-label">Phone Number</label>
                                     <input type="number" class="form-control" id="business-phonenumber"
-                                        placeholder="Phone Number" required>
+                                        placeholder="Phone Number" name="register-business-phonenumber" [ngModel]="business?.phoneNumber" (ngModelChange)="business.phoneNumber = $event" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="business-type" class="form-label">Type</label>
-                                    <input type="text" class="form-control" id="business-type"
-                                        placeholder="Descripe your business type" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="business-type" class="form-label">Type</label>
-                                    <select class="form-control" [(ngModel)]="business.type">
+                                    <select class="form-control" name="register-business-type" [(ngModel)]="business.type">
                                         <option default class="form-control">Select your business type</option>
                                         <option class="form-control">Gym</option>	
                                         <option class="form-control">Yoga Studio</option>
@@ -96,7 +91,7 @@
                                 <div class="mb-3">
                                     <label for="description" class="form-label">Description</label>
                                     <input type="text" class="form-control" id="business-description"
-                                        placeholder="Describe your business" required>
+                                        placeholder="Describe your business" name="register-business-description" [ngModel]="business?.description" (ngModelChange)="business.description = $event" required>
                                 </div>    
                             </div>
                             <!-- END BUSINESS FORM -->
