@@ -65,60 +65,34 @@ export class RegisterComponent {
       const createNewAccount = new Observable<void>((observer) => {
 
         // register new user
-        this.loginService.register(this.auth).subscribe();
-
-        // create API entities
-        if (this.auth.role === 'ROLE_USER') {
-          // assign email from entity auth to entity user
-          this.user.email = this.auth.username;
-          // create user
-          this.handleUserAccount(this.user);
-        } else if (this.auth.role === 'ROLE_BUSINESS') {
-          // assign email from entity auth to entity business
-          this.business.email = this.auth.username;
-          // create business
-          this.handleBusinessAccount(this.business);
-        }
-        console.log("register function finalized");
+        this.loginService.register(this.auth).subscribe(
+          res => {
+            // create API entities
+            if (this.auth.role === 'ROLE_USER') {
+              // assign email from entity auth to entity user
+              this.user.email = this.auth.username;
+              // create user
+              this.handleUserAccount(this.user);
+            } else if (this.auth.role === 'ROLE_BUSINESS') {
+              // assign email from entity auth to entity business
+              this.business.email = this.auth.username;
+              // create business
+              this.handleBusinessAccount(this.business);
+            }
+            console.log("register function finalized");
+          }
+        );
         observer.complete();
       });
 
-      // after the API response, login user
-      createNewAccount.subscribe(() => this.handleLogin(this.auth));
-    }
+      // after the API response, send user to login page
+      createNewAccount.subscribe();
+      this.router.navigate(['/login']);
 
+    }
     catch (error) {
       console.log(error.message);
     }
-  }
-
-  handleLogin(auth: Auth) {
-
-    return this.loginService.login(auth).subscribe({
-      next: (result) => {
-        this.auth = result;
-        this.USER_TOKEN = result.login.responseObject.basicAuthorization;
-        this.invalidLogin = false;
-        this.loginSuccess = true;
-        this.successMessage = 'Login Successful.';
-
-        if (this.auth.role === 'ROLE_USER') {
-          // when logged as user, redirect to user-dashboard
-          this.router.navigate(['/user-dashboard']);
-        } else if (this.auth.role === 'ROLE_BUSINESS') {
-          // when logged as business, redirect to business-dashboard
-          this.router.navigate(['/business-dashboard']);
-        } else if (this.auth.role === 'ROLE_SYSADMIN') {
-          // when logged as admin, redirect to admin-dashboard
-          this.router.navigate(['/admin-dashboard']);
-        }
-      },
-      error: (error) => {
-        this.invalidLogin = true;
-        this.loginSuccess = false;
-        console.log(error)
-      }
-    })
   }
 
   handleUserAccount(user: User) {
