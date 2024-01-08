@@ -74,7 +74,6 @@ export class RegisterComponent {
               // create business
               this.handleBusinessAccount(this.business);
             }
-            console.log("register function finalized");
           }
         );
         observer.complete();
@@ -91,11 +90,11 @@ export class RegisterComponent {
   }
 
   handleUserAccount(user: User) {
-    return this.userService.save(user).subscribe(res => console.log("create user resp: " + res));
+    return this.userService.save(user).subscribe();
   }
 
   handleBusinessAccount(business: Business) {
-    return this.businessService.save(business).subscribe(res => console.log("create business resp: " + res));
+    return this.businessService.save(business).subscribe();
   }
 
 }
