@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, shareReplay } from 'rxjs';
 import { Auth } from '../entity/auth';
-import { Cache } from '../_helpers/cache-decorator';
 
 @Injectable({
   providedIn: 'root'
@@ -13,18 +12,21 @@ export class LoginService {
   USER_ROLE: string;
   USER_ID = 0;
   USER_TOKEN: string;
+  loggedUser: boolean;
+  hasToken: boolean;
 
   private authUrl: string;
   private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
   private authResponse: Observable<any>
 
   constructor(private http: HttpClient) {
-    this.authUrl = "http://localhost:8080/wandergym/auth"
+    this.authUrl = "http://localhost:8080/wandergym/auth";
   }
 
   public login(auth: Auth): Observable<Auth> {
     const url = `${this.authUrl}/login`;
     this.authResponse = this.http.post<Auth>(url, auth, this.options).pipe(
+      // caches the login response to be used again
       shareReplay());
     return this.authResponse;
   }
@@ -40,7 +42,7 @@ export class LoginService {
   }
 
   isUserLoggedIn() {
-    let user = this.USER_SESSION_ATTRIBUTE_NAME
+    let user = this.USER_SESSION_ATTRIBUTE_NAME;
     if (user != undefined) {
       return true;
     }
@@ -48,7 +50,7 @@ export class LoginService {
   }
 
   getLoggedInUserName() {
-    let user = this.USER_SESSION_ATTRIBUTE_NAME
+    let user = this.USER_SESSION_ATTRIBUTE_NAME;
     if (user != null) {
       return '';
     } else {
@@ -60,9 +62,10 @@ export class LoginService {
     return this.authResponse;
   }
 
-  // @Cache()
   public getToken(): string {
+    // checks if the user is logged in
     if(this.authResponse != undefined){
+      // populate session variables according to cached login
       this.authResponse.subscribe({
         next: (result) => {
           this.USER_ROLE = result.login.responseObject.authorities[0].authority;

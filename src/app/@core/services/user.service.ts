@@ -21,6 +21,11 @@ export class UserService {
     return this.http.get<User>(url).pipe();
   }
 
+  public findByEmail(email: string): Observable<User> {
+    const url = `${this.usersUrl}/email/${email}`
+    return this.http.get<User>(url).pipe();
+  }
+
   public save(user: User) {
     const url = `${this.usersUrl}/signin`
     return this.http.post<User>(url, user, this.options).pipe();

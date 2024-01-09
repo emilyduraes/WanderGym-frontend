@@ -15,7 +15,6 @@ export class BusinessDashboardComponent {
   year = (new Date().getFullYear());
 
   
-
   ngOnInit(): void {
 
     const preloaderElement = document.getElementById('preloader');

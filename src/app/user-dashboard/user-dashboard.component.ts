@@ -4,6 +4,9 @@ import { Business } from '../@core/entity/business';
 import { BusinessService } from '../@core/services/business.service';
 import { SessionService } from '../@core/services/session.service';
 import { LoginService } from '../@core/services/login.service';
+import { User } from '../@core/entity/user';
+import { Observable } from 'rxjs';
+import { Auth } from '../@core/entity/auth';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -11,41 +14,74 @@ import { LoginService } from '../@core/services/login.service';
   styleUrl: './user-dashboard.component.scss'
 })
 export class UserDashboardComponent implements OnInit {
-logout() {
-throw new Error('Method not implemented.');
-}
 
-  constructor(private renderer: Renderer2, 
-    private userService: UserService, 
-    private businessService: BusinessService, 
+  constructor(private renderer: Renderer2,
+    private userService: UserService,
+    private businessService: BusinessService,
     private sessionService: SessionService,
-    private loginService: LoginService) { }
+    private loginService: LoginService) {    }
 
   year = (new Date().getFullYear());
 
+
   businesses: Business[];
+
+  auth: Observable<Auth>;
 
   isLoggedIn = false;
 
+  business: Business = {
+    name: '',
+    email: '',
+    phoneNumber: 0,
+    address: '',
+    description: '',
+    type: ''
+  };
+
+  user: User = {
+    fullName: '',
+    email: '',
+    dob: undefined,
+    mobileNumber: 0,
+    address: ''
+  };
+
+  username: string = window.localStorage.getItem("username");
+
+
   ngOnInit(): void {
 
-    this.isLoggedIn = this.loginService.isUserLoggedIn();
     console.log('menu ->' + this.isLoggedIn);
 
-    //FIXME: the data is persisted but is not showing in page (no errors occur)
-    this.businessService.findAll().subscribe(data => {
-      this.businesses = data;
+    this.userService.findByEmail(window.localStorage.getItem("username")).subscribe(data => {
+      this.user.email = data[0].email;
+      this.user.fullName = data[0].fullName;
+      this.user.id = data[0].id;
+      this.user.address = data[0].address;
       console.log(data);
+      window.localStorage.setItem("full-name", data[0].fullName);
+      window.localStorage.setItem("user-id", data[0].id.toString());   
     });
 
-    const preloaderElement = document.getElementById('preloader');
+
     
+
+    const preloaderElement = document.getElementById('preloader');
+
     if (preloaderElement) {
       this.renderer.removeClass(preloaderElement, 'd-none')
     }
     setTimeout(() => {
       this.renderer.addClass(preloaderElement, 'd-none');
     }, 1000);
+
+
+    //FIXME: the data is persisted but is not showing in page
+    this.businessService.findAll().subscribe(data => {
+      this.businesses = data;
+      console.log(data);
+    });
 
   }
 
@@ -62,6 +98,11 @@ throw new Error('Method not implemented.');
   handleLogout() {
     this.loginService.logout();
   }
+
+  getName(){
+    return window.localStorage.getItem("full-name");
+  }
+
 
   // TODO: add create session function
   // createSession() {

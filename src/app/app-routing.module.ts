@@ -35,17 +35,17 @@ const routes: Routes = [
   {
     path: 'user-dashboard',
     component:UserDashboardComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'business-dashboard',
     component:BusinessDashboardComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'admin-dashboard',
     component:AdminDashboardComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   }
 ];
 

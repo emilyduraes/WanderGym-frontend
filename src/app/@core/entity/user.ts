@@ -7,3 +7,7 @@ export interface User {
     address: string;
     active?: boolean; //optional value
 }
+
+export interface UserResponse {
+    finalUser: User;
+}

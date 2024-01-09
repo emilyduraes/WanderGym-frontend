@@ -16,13 +16,16 @@ export class BusinessService {
     this.businessUrl = "http://localhost:8080/wandergym/business";
   }
 
-
-
   public findById(id: number): Observable<Business> {
     const url = `${this.businessUrl}/id/${id}`
     return this.http.get<Business>(url).pipe();
   }
 
+  public findByEmail(email: string): Observable<Business> {
+    const url = `${this.businessUrl}/email/${email}`
+    return this.http.get<Business>(url).pipe();
+  }
+  
   public findByName(name: string): Observable<Business[]> {
     const url = `${this.businessUrl}/name/${name}`
     if (!name.trim()) {
