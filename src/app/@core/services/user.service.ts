@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../entity/user';
+import { User, UserResponse } from '../entity/user';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -21,9 +21,9 @@ export class UserService {
     return this.http.get<User>(url).pipe();
   }
 
-  public findByEmail(email: string): Observable<User> {
+  public findByEmail(email: string): Observable<UserResponse> {
     const url = `${this.usersUrl}/email/${email}`
-    return this.http.get<User>(url).pipe();
+    return this.http.get<UserResponse>(url).pipe();
   }
 
   public save(user: User) {

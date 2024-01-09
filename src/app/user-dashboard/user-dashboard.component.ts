@@ -55,13 +55,14 @@ export class UserDashboardComponent implements OnInit {
     console.log('menu ->' + this.isLoggedIn);
 
     this.userService.findByEmail(window.localStorage.getItem("username")).subscribe(data => {
-      this.user.email = data[0].email;
-      this.user.fullName = data[0].fullName;
-      this.user.id = data[0].id;
-      this.user.address = data[0].address;
       console.log(data);
-      window.localStorage.setItem("full-name", data[0].fullName);
-      window.localStorage.setItem("user-id", data[0].id.toString());   
+      this.user.email = data.finalUser.email;
+      this.user.fullName = data.finalUser.fullName;
+      this.user.id = data.finalUser.id;
+      this.user.address = data.finalUser.address;
+      console.log(data);
+      window.localStorage.setItem("full-name", data.finalUser.fullName);
+      window.localStorage.setItem("user-id", data.finalUser.id.toString());   
     });
 
 
