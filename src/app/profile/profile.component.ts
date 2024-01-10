@@ -2,7 +2,6 @@ import { Component, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../@core/services/login.service';
 import { User } from '../@core/entity/user';
-import { Business } from '../@core/entity/business';
 import { UserService } from '../@core/services/user.service';
 
 @Component({
