@@ -43,7 +43,8 @@
             <div class="col-lg-6">
                 <div class="text-center mb-4">
                     <h3>Update Profile</h3>
-                    <p class="text-muted mt-2 mb-0">Would you like to update your profile? Please complete the form below :) </p>
+                    <p class="text-muted mt-2 mb-0">Would you like to update your profile? Please complete the form
+                        below :) </p>
                 </div>
             </div>
         </div>
@@ -51,23 +52,26 @@
             <div class="col-lg-4">
                 <div class="row">
                     <div class="position-relative mb-3">
-                        <span class="input-group-text"><i class="mdi mdi-account-outline"></i>Name: {{user.fullName}}</span>
+                        <span class="input-group-text"><i class="mdi mdi-account-outline"></i>Name:
+                            {{user.fullName}}</span>
                     </div>
                     <div class="position-relative mb-3">
                         <span class="input-group-text"><i class="mdi mdi-email-outline"></i>Email: {{user.email}}</span>
                     </div>
                     <div class="position-relative mb-3">
-                        <span class="input-group-text"><i class="mdi mdi-map-marker-outline"></i>Address: {{user.address}}</span>
+                        <span class="input-group-text"><i class="mdi mdi-map-marker-outline"></i>Address:
+                            {{user.address}}</span>
                     </div>
                     <div class="position-relative mb-3">
-                        <span class="input-group-text"><i class="mdi mdi-account-outline"></i>Mobile Number: {{user.mobileNumber}}</span>
+                        <span class="input-group-text"><i class="mdi mdi-account-outline"></i>Mobile Number:
+                            {{user.mobileNumber}}</span>
                     </div>
                 </div>
                 <!-- end row -->
             </div>
             <div class="col-lg-4">
-                <form (ngSubmit)="onSubmit()" [formGroup]="profileForm" method="post" class="contact-form" name="profileForm"
-                    id="profileForm">
+                <form (ngSubmit)="onSubmit()" [formGroup]="profileForm" method="post" class="contact-form"
+                    name="profileForm" id="profileForm">
                     <span id="error-msg"></span>
                     <div class="row ">
                         <div class="position-relative mb-3">
@@ -89,7 +93,8 @@
                     <!-- end row -->
                     <div class="row">
                         <div class="col-sm-12 text-end">
-                            <input type="submit" id="submit" name="update" class="btn btn-primary" [disabled]="profileForm.invalid" value="Update">
+                            <input type="submit" id="submit" name="update" class="btn btn-primary"
+                                [disabled]="profileForm.invalid" value="Update">
                         </div>
                     </div>
                     <!-- end row -->
