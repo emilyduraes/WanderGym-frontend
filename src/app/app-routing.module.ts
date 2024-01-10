@@ -73,7 +73,7 @@ const routes: Routes = [
     // canActivate: [AuthGuard]
   },
   {
-    path: 'cancel',
+    path: 'canceled',
     component: CancelComponent
     // canActivate: [AuthGuard]
   }

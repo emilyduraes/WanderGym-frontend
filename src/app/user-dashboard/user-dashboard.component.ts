@@ -5,6 +5,7 @@ import { BusinessService } from '../@core/services/business.service';
 import { SessionService } from '../@core/services/session.service';
 import { LoginService } from '../@core/services/login.service';
 import { User } from '../@core/entity/user';
+import { Session } from '../@core/entity/session';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -42,6 +43,14 @@ export class UserDashboardComponent implements OnInit {
     mobileNumber: 0,
     address: ''
   };
+
+  session: Session = {
+    id: 0,
+    businessId: 0,
+    userId: 0,
+    dailyAttendance: 0,
+    monthlyAttendance: 0
+  }
 
   username: string = window.localStorage.getItem("username");
 
@@ -100,8 +109,12 @@ export class UserDashboardComponent implements OnInit {
   }
 
 
-  // TODO: add create session function
-  // createSession() {
-  //   this.sessionService.save()
-  // }
+
+  startSession(businessId: number) {
+    this.session.businessId = businessId;
+    this.session.userId = Number(window.localStorage.getItem("user-id"));
+    this.sessionService.save(this.session).subscribe(
+      (res) => {console.log("New Session created")}
+    );
+  }
 }
