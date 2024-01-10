@@ -22,10 +22,10 @@
         <div class="collapse navbar-collapse" scrollSpy id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbar-navList">
                 <li class="nav-item">
-                    <a class="nav-link" href="!#">My Profile</a>
+                    <a class="nav-link" href="/profile">My Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
+                    <a class="nav-link" href="/" (click)=handleLogout()>Logout</a>
                 </li>
             </ul>
             <!--end navbar-nav-->
@@ -111,7 +111,7 @@
 
         <!-- PERSISTED FROM DB SECTION -->
         <div class="row">
-            <div class="col-lg-4 col-md-6" *ngFor="let b of businesses">
+            <div class="col-lg-4 col-md-6" *ngFor="let b of businesses; index as i;">
                 <div class="card blog-box border-0 mt-4">
                     <div class="blog-img position-relative">
                         <img src="assets/images/blog/blog-1.jpg" alt="Blog" class="img-fluid rounded">
@@ -119,9 +119,9 @@
                     </div>
                     <div class="mt-3">
                         <a href="javascript: void(0);" class="primary-link">
-                            <h6 class="fs-20">{{b.name}}</h6>
+                            <h6 class="fs-20">{{b.business[i].name}}</h6>
                         </a>
-                        <p class="text-muted">{{b.description}}</p>
+                        <p class="text-muted">{{b.business[i].description}}</p>
                         <div class="mt-3">
                             <a href="javascript: void(0);" class="text-primary">Start session <i
                                     class="mdi mdi-arrow-right align-middle"></i></a>

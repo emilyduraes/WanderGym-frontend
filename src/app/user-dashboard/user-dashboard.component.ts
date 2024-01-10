@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { UserService } from '../@core/services/user.service';
-import { Business } from '../@core/entity/business';
+import { Business, BusinessResponse } from '../@core/entity/business';
 import { BusinessService } from '../@core/services/business.service';
 import { SessionService } from '../@core/services/session.service';
 import { LoginService } from '../@core/services/login.service';
@@ -24,7 +24,7 @@ export class UserDashboardComponent implements OnInit {
   year = (new Date().getFullYear());
 
 
-  businesses: Business[];
+  businesses: BusinessResponse[];
 
   auth: Observable<Auth>;
 
@@ -54,19 +54,18 @@ export class UserDashboardComponent implements OnInit {
 
     console.log('menu ->' + this.isLoggedIn);
 
+
+    // get user data from API and store in browser some values
     this.userService.findByEmail(window.localStorage.getItem("username")).subscribe(data => {
       console.log(data);
       this.user.email = data.finalUser.email;
       this.user.fullName = data.finalUser.fullName;
       this.user.id = data.finalUser.id;
       this.user.address = data.finalUser.address;
-      console.log(data);
       window.localStorage.setItem("full-name", data.finalUser.fullName);
       window.localStorage.setItem("user-id", data.finalUser.id.toString());   
     });
 
-
-    
 
     const preloaderElement = document.getElementById('preloader');
 

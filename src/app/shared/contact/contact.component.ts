@@ -25,10 +25,10 @@ export class ContactComponent {
   }
 
   ValidateFrom() {
-    var name = this.contactForm.get("name")!.value;
-    var email = this.contactForm.get("email")!.value;
-    var subject = this.contactForm.get("subject")!.value;
-    var comments = this.contactForm.get("comments")!.value;
+    let name = this.contactForm.get("name")!.value;
+    let email = this.contactForm.get("email")!.value;
+    let subject = this.contactForm.get("subject")!.value;
+    let comments = this.contactForm.get("comments")!.value;
     if (name == "" || name == null) {
       document.getElementById('error-msg')!.innerHTML = "<div class='alert alert-danger error_message'><i data-feather='home' class='icon-sm align-middle me-2'></i>*Please enter a name*</div>";
       return false;
@@ -50,7 +50,7 @@ export class ContactComponent {
 
   sendMsg() {
     if (this.ValidateFrom()) {
-      document.getElementById('error-msg')!.innerHTML =""
+      document.getElementById('error-msg')!.innerHTML = ""
     }
   }
 }

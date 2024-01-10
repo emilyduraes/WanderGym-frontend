@@ -1,6 +1,6 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
   private loginUrl = "http://localhost:8080/wandergym/auth/login";
   private registerUrl = "http://localhost:8080/wandergym/auth/register";
+  private userUrl = new RegExp("http://localhost:8080/wandergym/user/");
+  private businessUrl = new RegExp("http://localhost:8080/wandergym/business/");
+  
 
 
 
@@ -27,6 +30,7 @@ export class AuthInterceptor implements HttpInterceptor {
         tap((res) => {
           if (res instanceof HttpResponse) {
             this.cache.set(req.url, res);
+            window.localStorage.setItem('auth-token', res.body.login.responseObject.basicAuthorization);
           }
         })
       )
@@ -37,6 +41,18 @@ export class AuthInterceptor implements HttpInterceptor {
 
     if (authRes != undefined) {
       const token = authRes.body.login.responseObject.basicAuthorization;
+      const authReq = req.clone({
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `${token}`
+        })
+      });
+
+      return next.handle(authReq);
+    }
+
+    if(this.userUrl.test(req.url) || this.businessUrl.test(req.url)){
+      const token = window.localStorage.getItem("auth-token");
       const authReq = req.clone({
         headers: new HttpHeaders({
           'Content-Type': 'application/json',

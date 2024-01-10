@@ -16,6 +16,13 @@ import { Observable } from 'rxjs';
 export class RegisterComponent {
 
   year = (new Date().getFullYear());
+  username: string;
+  errorMessage = 'Invalid Credentials';
+  successMessage: string;
+  invalidLogin = false;
+  loginSuccess = false;
+  userRole = "ROLE_USER";
+  businessRole = "ROLE_BUSINESS";
 
   auth: Auth;
   user: User = {
@@ -34,13 +41,7 @@ export class RegisterComponent {
     description: '',
     type: ''
   };
-  username: string;
-  errorMessage = 'Invalid Credentials';
-  successMessage: string;
-  invalidLogin = false;
-  loginSuccess = false;
-  userRole: string;
-  businessRole: string;
+
 
   constructor(
     private router: Router,
@@ -50,9 +51,6 @@ export class RegisterComponent {
 
   ngOnInit() {
     this.auth = new Auth();
-    this.userRole = "ROLE_USER";
-    this.businessRole = "ROLE_BUSINESS";
-    ;
   }
 
   handleRegister() {
@@ -63,12 +61,12 @@ export class RegisterComponent {
         this.loginService.register(this.auth).subscribe(
           res => {
             // create API entities
-            if (this.auth.role === 'ROLE_USER') {
+            if (this.auth.role === this.userRole) {
               // assign email from entity auth to entity user
               this.user.email = this.auth.username;
               // create user
               this.handleUserAccount(this.user);
-            } else if (this.auth.role === 'ROLE_BUSINESS') {
+            } else if (this.auth.role === this.businessRole) {
               // assign email from entity auth to entity business
               this.business.email = this.auth.username;
               // create business

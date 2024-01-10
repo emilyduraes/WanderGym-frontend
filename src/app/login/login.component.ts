@@ -4,8 +4,6 @@ import { LoginService } from '../@core/services/login.service';
 import { Auth } from '../@core/entity/auth';
 import { User } from '../@core/entity/user';
 import { Business } from '../@core/entity/business';
-import { UserService } from '../@core/services/user.service';
-import { BusinessService } from '../@core/services/business.service';
 
 @Component({
   selector: 'app-login',
@@ -33,9 +31,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private loginService: LoginService,
-    private userService: UserService,
-    private businessService: BusinessService) { }
+    private loginService: LoginService) { }
 
   ngOnInit() {
     this.auth = new Auth();
@@ -52,6 +48,7 @@ export class LoginComponent implements OnInit {
         this.loginSuccess = true;
         this.successMessage = 'Login Successful.';
         window.localStorage.setItem("username", result.login.responseObject.username);
+        window.localStorage.setItem("user-role", result.login.responseObject.role);
 
         if (this.USER_ROLE === 'ROLE_USER') {
           this.router.navigate(['/user-dashboard']);
@@ -68,23 +65,5 @@ export class LoginComponent implements OnInit {
       }
     })
   }
-
-  // handleGetUserAccount() {
-  //   return this.userService.findByEmail(window.localStorage.getItem("username")).subscribe(data => {
-  //     this.user = data;
-  //     window.localStorage.setItem("full-name", data.fullName);
-  //     window.localStorage.setItem("user-id", data.id.toString());
-  //     console.log(data);
-  //   });
-  // }
-
-  // handleGetBusinessAccount() {
-  //   return this.businessService.findByEmail(window.localStorage.getItem("username")).subscribe(data => {
-  //     this.business = data;
-  //     window.localStorage.setItem("business-name", data.name);
-  //     window.localStorage.setItem("business-id", data.id.toString());
-  //     console.log(data);
-  //   });
-  // }
 
 }

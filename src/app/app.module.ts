@@ -23,8 +23,9 @@ import { UserService } from './@core/services/user.service';
 import { BusinessService } from './@core/services/business.service';
 import { AuthInterceptor } from './@core/_helpers/auth-interceptor';
 import { LoginService } from './@core/services/login.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     ResetpasswordComponent,
     UserDashboardComponent,
     BusinessDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     BrowserAnimationsModule,
     HttpClientModule,
     CountUpModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     UserService,

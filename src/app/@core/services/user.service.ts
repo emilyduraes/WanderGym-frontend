@@ -16,9 +16,9 @@ export class UserService {
     this.usersUrl = "http://localhost:8080/wandergym/user";
   }
 
-  public findById(id: number): Observable<User> {
+  public findById(id: number): Observable<UserResponse> {
     const url = `${this.usersUrl}/id/${id}`
-    return this.http.get<User>(url).pipe();
+    return this.http.get<UserResponse>(url).pipe();
   }
 
   public findByEmail(email: string): Observable<UserResponse> {

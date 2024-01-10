@@ -10,6 +10,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { BusinessDashboardComponent } from './business-dashboard/business-dashboard.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from './@core/_helpers/auth-guard';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { 
@@ -45,6 +46,11 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     component:AdminDashboardComponent,
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
     // canActivate: [AuthGuard]
   }
 ];
