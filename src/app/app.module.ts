@@ -26,6 +26,7 @@ import { LoginService } from './@core/services/login.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BusinessProfileComponent } from './business-profile/business-profile.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { ProfileComponent } from './profile/profile.component';
     UserDashboardComponent,
     BusinessDashboardComponent,
     AdminDashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    BusinessProfileComponent
   ],
   imports: [
     BrowserModule,

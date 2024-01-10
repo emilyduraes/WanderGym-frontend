@@ -8,3 +8,7 @@ export interface Business {
     type: string;
     active?: boolean; //optional value
 }
+
+export interface BusinessResponse{
+    business: Business;
+}

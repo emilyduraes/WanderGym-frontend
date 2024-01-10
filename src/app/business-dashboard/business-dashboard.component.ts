@@ -1,6 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
-import { UserService } from '../@core/services/user.service';
 import { BusinessService } from '../@core/services/business.service';
+import { Business } from '../@core/entity/business';
+import { LoginService } from '../@core/services/login.service';
 
 
 @Component({
@@ -10,10 +11,17 @@ import { BusinessService } from '../@core/services/business.service';
 })
 export class BusinessDashboardComponent {
 
-  constructor(private renderer: Renderer2, private userService: UserService, private businessService: BusinessService) { }
+  constructor(private renderer: Renderer2, private loginService: LoginService, private businessService: BusinessService) { }
 
   year = (new Date().getFullYear());
-
+  business: Business = {
+    name: '',
+    email: '',
+    phoneNumber: 0,
+    address: '',
+    description: '',
+    type: ''
+  };
   
   ngOnInit(): void {
 
@@ -26,6 +34,16 @@ export class BusinessDashboardComponent {
       this.renderer.addClass(preloaderElement, 'd-none');
     }, 1000);
 
+    // get user data from API and store in browser some values
+    this.businessService.findByEmail(window.localStorage.getItem("username")).subscribe(data => {
+      console.log(data);
+      this.business.email = data.business.email;
+      this.business.name = data.business.name;
+      this.business.id = data.business.id;
+      this.business.address = data.business.address;
+      window.localStorage.setItem("full-name", data.business.name);
+      window.localStorage.setItem("user-id", data.business.id.toString());   
+    });
   }
 
   //togglemenu
@@ -36,6 +54,10 @@ export class BusinessDashboardComponent {
   topFunction() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+  }
+
+  handleLogout() {
+    this.loginService.logout();
   }
 
 }

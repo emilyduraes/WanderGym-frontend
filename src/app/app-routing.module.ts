@@ -11,6 +11,7 @@ import { BusinessDashboardComponent } from './business-dashboard/business-dashbo
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from './@core/_helpers/auth-guard';
 import { ProfileComponent } from './profile/profile.component';
+import { BusinessProfileComponent } from './business-profile/business-profile.component';
 
 const routes: Routes = [
   { 
@@ -49,8 +50,13 @@ const routes: Routes = [
     // canActivate: [AuthGuard]
   },
   {
-    path: 'profile',
+    path: 'user-profile',
     component: ProfileComponent
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'business-profile',
+    component: BusinessProfileComponent
     // canActivate: [AuthGuard]
   }
 ];

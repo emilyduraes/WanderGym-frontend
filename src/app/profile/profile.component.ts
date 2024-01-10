@@ -11,10 +11,6 @@ import { UserService } from '../@core/services/user.service';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent {
-  businessRole = "ROLE_BUSINESS";
-  userRole = "ROLE_USER";
-  adminRole = "ROLE_SYSADMIN";
-  presentAuthRole = window.localStorage.getItem("user-role");
   presetUserId = window.localStorage.getItem("user-id");
   year = (new Date().getFullYear());
   user: User = {
@@ -24,14 +20,6 @@ export class ProfileComponent {
     mobileNumber: 0,
     address: '',
     active: false
-  };
-  business: Business = {
-    name: '',
-    email: '',
-    phoneNumber: 0,
-    address: '',
-    description: '',
-    type: ''
   };
   profileForm: FormGroup;
   userDOB: string;

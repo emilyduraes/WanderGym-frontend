@@ -26,8 +26,6 @@ export class UserDashboardComponent implements OnInit {
 
   businesses: BusinessResponse[];
 
-  auth: Observable<Auth>;
-
   isLoggedIn = false;
 
   business: Business = {
