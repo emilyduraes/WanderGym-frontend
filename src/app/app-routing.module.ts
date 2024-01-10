@@ -12,6 +12,9 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AuthGuard } from './@core/_helpers/auth-guard';
 import { ProfileComponent } from './profile/profile.component';
 import { BusinessProfileComponent } from './business-profile/business-profile.component';
+import { SuccessComponent } from './success/success.component';
+import { CancelComponent } from './cancel/cancel.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   { 
@@ -57,6 +60,21 @@ const routes: Routes = [
   {
     path: 'business-profile',
     component: BusinessProfileComponent
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'success',
+    component: SuccessComponent
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'cancel',
+    component: CancelComponent
     // canActivate: [AuthGuard]
   }
 ];

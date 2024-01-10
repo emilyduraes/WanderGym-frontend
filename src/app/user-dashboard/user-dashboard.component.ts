@@ -5,8 +5,6 @@ import { BusinessService } from '../@core/services/business.service';
 import { SessionService } from '../@core/services/session.service';
 import { LoginService } from '../@core/services/login.service';
 import { User } from '../@core/entity/user';
-import { Observable } from 'rxjs';
-import { Auth } from '../@core/entity/auth';
 
 @Component({
   selector: 'app-user-dashboard',

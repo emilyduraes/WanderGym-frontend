@@ -13,9 +13,8 @@ export class AuthInterceptor implements HttpInterceptor {
   private registerUrl = "http://localhost:8080/wandergym/auth/register";
   private userUrl = new RegExp("http://localhost:8080/wandergym/user/");
   private businessUrl = new RegExp("http://localhost:8080/wandergym/business/");
+  private stripeUrl = "http://localhost:8080/wandergym/api/subscription"
   
-
-
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -51,7 +50,7 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(authReq);
     }
 
-    if(this.userUrl.test(req.url) || this.businessUrl.test(req.url)){
+    if(this.userUrl.test(req.url) || this.businessUrl.test(req.url) || req.url == this.stripeUrl){
       const token = window.localStorage.getItem("auth-token");
       const authReq = req.clone({
         headers: new HttpHeaders({

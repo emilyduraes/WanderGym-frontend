@@ -27,6 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BusinessProfileComponent } from './business-profile/business-profile.component';
+import { CancelComponent } from './cancel/cancel.component';
+import { SuccessComponent } from './success/success.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
@@ -39,7 +42,10 @@ import { BusinessProfileComponent } from './business-profile/business-profile.co
     BusinessDashboardComponent,
     AdminDashboardComponent,
     ProfileComponent,
-    BusinessProfileComponent
+    BusinessProfileComponent,
+    CancelComponent,
+    SuccessComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
